@@ -1,0 +1,32 @@
+name: Auto Backup and Restore
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Choose action: backup or restore'
+        required: true
+        default: 'backup'
+        type: choice
+        options:
+          - backup
+          - restore
+
+jobs:
+  backup-restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run backup or restore script
+        run: |
+          chmod +x ./backup-restore.sh
+          if [ "${{ github.event.inputs.action }}" == "backup" ]; then
+            ./backup-restore.sh backup_and_upload
+          elif [ "${{ github.event.inputs.action }}" == "restore" ]; then
+            ./backup-restore.sh restore_backup
+          else
+            echo "Invalid action. Use 'backup' or 'restore'."
+            exit 1
+          fi
