@@ -92,7 +92,7 @@ jobs:
         run: |
           curl -X POST https://api.github.com/repos/BiratPaudel10/Biralomain/dispatches \
             -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
             -d '{"event_type": "create-vps", "client_payload": {"vps_name": "autovps", "backup": false}}'
 
 4 auto-start.yml
