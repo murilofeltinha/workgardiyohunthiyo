@@ -2,13 +2,13 @@ name: Continuous Persistent VPS
  
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
+    - cron: '0 */5 * * *'  # Every 5 hours
   workflow_dispatch:
  
 jobs:
   vps-session:
     runs-on: ubuntu-latest
-    timeout-minutes: 350  # Just under 6 hours
+    timeout-minutes: 300  # Just under 5 hours
  
     steps:
       - name: Checkout repo
@@ -76,7 +76,7 @@ jobs:
           cat $HOME/.tmate.sock/ssh
  
       - name: Sleep to keep VPS alive
-        run: sleep 21600  # 6 hours
+        run: sleep 18000  # 5 hours
  
       - name: Backup VPS data and tailscale state
         run: |
