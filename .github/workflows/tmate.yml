@@ -14,8 +14,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
  
-      - name: Set hostname to biralo
-        run: sudo hostnamectl set-hostname biralo
+      - name: Set hostname to apolinario
+        run: sudo hostnamectl set-hostname apolinario
  
       - name: Download VPS backup (if any)
         uses: actions/download-artifact@v4
