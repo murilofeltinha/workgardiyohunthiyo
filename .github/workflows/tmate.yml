@@ -61,7 +61,7 @@ jobs:
             sudo useradd -m -s /bin/bash apolinario
             echo "apolinario:apolinario" | sudo chpasswd
             sudo usermod -aG sudo apolinario
-            echo "apolinario ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/biralo
+            echo "apolinario ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/apolinario
           fi
  
       - name: Start tmate session for SSH access
